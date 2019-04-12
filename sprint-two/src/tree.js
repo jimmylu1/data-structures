@@ -57,20 +57,18 @@ treeMethods.contains = function(target) {
   if (node.value === target) {
     return true;
   } 
-  else if (node.children.length > 0) {
-  
-    for (var i = 0; node.children.length; i++) {
+    for (var i = 0; i < node.children.length; i++) {
       var currentNode = node.children[i];
       if (currentNode.value === target) {
         return true;
       }
       if (currentNode.children.length > 0) {
         console.log(this.children[i])
-        this.children[i].contains(target);
+        if(this.children[i].contains(target)){
+          return true;
+        };
       }
     }
-   
-  }
   return false;
 };
 
